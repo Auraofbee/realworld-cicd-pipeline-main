@@ -1,0 +1,39 @@
+      cd realworld-cicd-pipeline-project/
+     git branch
+     git checkout realworld-cicd-pipeline-project
+     sudo apt update
+     sudo apt install -y gnupg2 curl software-properties-common
+    sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+     sudo apt update
+    sudo apt -y install grafana
+     sudo snap install grafana
+     sudo systemctl enable --now grafana-server
+     grafana --version
+     sudo apt -y install grafana
+     clear
+     sudo apt update
+     sudo apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
+     sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
+     sudo add-apt-repository ppa:ondrej/php
+     sudo apt update
+     sudo apt -y install grafana
+     ls
+     cd realworld-cicd-pipeline-project/
+     ls
+     sudo apt install -y gnupg2 curl software-properties-common
+     curl -fsSL https://packages.grafana.com/gpg.key|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/grafana.gpg
+     sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+     sudo apt update
+     sudo apt -y install grafana
+     sudo systemctl enable --now grafana-server
+     systemctl status grafana-server.service
+     sudo apt -y install ufw
+     sudo ufw enable
+     sudo ufw allow ssh
+     sudo ufw allow 3000/tcp
+     ls
+     cd realworld-cicd-pipeline-project/
+     /usr/sbin/grafana-server
+     sudo install /usr/sbin/grafana-server
+     clear
+     history
