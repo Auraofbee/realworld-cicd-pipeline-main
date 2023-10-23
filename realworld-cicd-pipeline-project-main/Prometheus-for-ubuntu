@@ -1,0 +1,71 @@
+ 1  git
+    2  git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+    3  cd realworld-cicd-pipeline-project
+    4  git branch
+    5  git branch prometheus-and-grafana
+    6  git branch
+    7  git switch branch prometheus-and-grafana
+    8  git switch
+    9  git checkout
+   10  git branch
+   11  git checkout prometheus-and-grafana
+   12  ./install-prometheus.sh
+   13  run ./install-prometheus.sh
+   14  ./install-prometheus.sh
+   15  ls
+   16  install-prometheus.sh
+   17  ls
+   18  clear
+   19  ls
+   20  git branch
+   21  sh.install-prometheus.sh
+   22  sh.install-prometheus.bash
+   23  wget https://github.com/prometheus/prometheus/releases/download/v2.35.1/prometheus-2.35.1.linux-amd64.tar.gz
+   24  tar -xvf prometheus-2.35.1.linux-amd64.tar
+   25  sudo groupadd --system prometheus
+   26  sudo useradd -s /sbin/nologin --system -g prometheus prometheus
+   27  sudo mkdir /var/lib/prometheus
+   28  for i in rules rules.d files_sd; do sudo mkdir -p /etc/prometheus/${i}; done
+   29  sudo apt update
+   30  sudo apt -y install wget curl vim
+   31  mkdir -p /tmp/prometheus && cd /tmp/prometheus
+   32  curl -s https://api.github.com/repos/prometheus/prometheus/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -
+   33  tar xvf prometheus*.tar.gz
+   34  cd prometheus*/
+   35  sudo mv prometheus promtool /usr/local/bin/
+   36  prometheus --version
+   37  promtool --version
+   38  sudo mv prometheus.yml /etc/prometheus/prometheus.yml
+   39  sudo mv consoles/ console_libraries/ /etc/prometheus/
+   40  cd $HOME
+   41  sudo vim /etc/prometheus/prometheus.yml
+   42  clear
+   43  sudo tee /etc/systemd/system/prometheus.service<<EOF
+[Unit]
+Description=Prometheus
+Documentation=https://prometheus.io/docs/introduction/overview/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecReload=/bin/kill -HUP \$MAINPID
+ExecStart=/usr/local/bin/prometheus   --config.file=/etc/prometheus/prometheus.yml   --storage.tsdb.path=/var/lib/prometheus   --web.console.templates=/etc/prometheus/consoles   --web.console.libraries=/etc/prometheus/console_libraries   --web.listen-address=0.0.0.0:9090   --web.external-url=
+
+SyslogIdentifier=prometheus
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+   44  for i in rules rules.d files_sd; do sudo chown -R prometheus:prometheus /etc/prometheus/${i}; done
+   45  for i in rules rules.d files_sd; do sudo chmod -R 775 /etc/prometheus/${i}; done
+   46  sudo chown -R prometheus:prometheus /var/lib/prometheus/
+   47  sudo systemctl daemon-reload
+   48  sudo systemctl start prometheus
+   49  sudo systemctl enable prometheus
+   50  systemctl status prometheus
+   51  history
